@@ -1,0 +1,38 @@
+﻿
+@model Experiment_8.Models.Product
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Edit Product</title>
+</head>
+<body>
+    <h2>Edit Product</h2>
+
+    @using (Html.BeginForm("Edit", "Product", FormMethod.Post))
+    {
+        @Html.AntiForgeryToken()
+        @Html.HiddenFor(m => m.ProductId)
+
+        <p>Product Name:</p>
+        @Html.TextBoxFor(m => m.ProductName)
+
+        <p>Quantity:</p>
+        @Html.TextBoxFor(m => m.Quantity)
+
+        <p>Price:</p>
+        @Html.TextBoxFor(m => m.Price)
+
+        <br /><br />
+
+        <input type="submit" value="Update Product" />
+    }
+
+    <br />
+    @Html.ActionLink("Back to Inventory", "Index")
+</body>
+</html>
